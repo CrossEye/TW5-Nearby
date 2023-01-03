@@ -1,0 +1,31 @@
+{
+  "name": "tw5-nearby",
+  "version": "0.0.1",
+  "description": "Adds nearby-neighbors footer to tiddlywiki tiddlers",
+  "main": "index.js",
+  "scripts": {
+    "pkg": "cross-var echo Package $npm_package_version",
+    "build": "tiddlywiki . --output docs --build index && cross-var shx mkdir -p docs/$npm_package_version && cross-var shx cp docs/index.html docs/$npm_package_version/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrossEye/Nearby.git"
+  },
+  "keywords": [
+    "TiddlyWiki",
+    "plugin"
+  ],
+  "author": "Scott Sauyet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrossEye/TW5-Nearby/issues"
+  },
+  "homepage": "https://github.com/CrossEye/TW5-Nearby#readme",
+  "dependencies": {
+    "tiddlywiki": "^5.2.5"
+  },
+  "devDependencies": {
+    "cross-var": "^1.1.0",
+    "shx": "^0.3.4"
+  }
+}

@@ -1,0 +1,28 @@
+created: 20230103021217747
+modified: 20230103035502980
+tags: 
+title: Nearest Neighbors
+type: text/vnd.tiddlywiki
+
+[img[$:/Nearby/images/TiddlerWithNav.png]]
+
+{{$:/plugins/ScottSauyet/Nearby/readme}}
+
+!! Examples
+
+You can see the behaviors by expanding the `Nearby` footer on various tiddlers.  By adding/removing links between them, adding/removing a tag on several of them, tagging/untagging one tiddler with the title of another, or adding/removing fields that have another tiddler for a value, you can see the footers add , remove, and reorder lists of neighbors.
+
+Here are some to start:
+
+* [[Lorem ipsum]] has many neighbors
+* [[Eget felis]] has a handful of neighbors
+* [[Commodo quis imperdiet]] has one neighbor
+* [[Commodo quis imperdiet]] has no neighbors
+
+
+
+!! TODO
+
+{{$:/plugins/ScottSauyet/Nearby/todo}}
+
+

@@ -1,0 +1,15 @@
+created: 20221121184648238
+modified: 20221130014855607
+tags: $:/tags/Stylesheet
+title: $:/plugins/ScottSauyet/Nearby/Stylesheet
+type: text/vnd.tiddlywiki
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline html
+
+.nearby-neighbor {
+  width: 100%; 
+  margin-top: 2em; 
+  border: none;
+  border-top: 1px solid <<colour muted-foreground>>; 
+}
+

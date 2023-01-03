@@ -1,0 +1,30 @@
+created: 20230103030759429
+modified: 20230103041255873
+tags: 
+title: $:/plugins/ScottSauyet/Nearby/todo
+type: text/vnd.tiddlywiki
+
+''Note'': This is a very early proof of concept.  There is much to do before even deciding whether it's worth pursuing, and then more after that to make this generally useful.
+
+!!! Important open questions
+
+* This is only the first pass at neighbors.  The idea is to use the distances calculated here as the initial edge weights to use in [[Dijkstra's Algorithm|https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm]].  But that would almost certainly involve caching results.  It's unlikely that we'd be able to efficiently run this on all the tiddlers of a large wiki through the <code>O(n<sup>2</sup>)</code> pairs.  But that means figuring out caching mechanisms.  This is probably harder than many caching features, as we have to cache the distances of //pairs// of nodes.  We would then still need to run Dijkstra on the result, for every change, and that may be ugly.  Alternately, and quite reasonably for my initial use-case, is to note run this on change, but only at start-up/refresh.  But that seems counter to most people's usage of TW.
+
+* This plain list of closest neighbors, currently set at the top ten, is only for the proof-of-concept.  It would be great to have some visualization of the neighborhood, using something like a force-directed graph, with each node being the tiddler title/caption as a link to the tiddler.    Or perhaps simpler, we could have each title associated with a simple distance visualization.  To do this, I would need to get back either a list of pairs (name/value) or a pair of lists (names/values).  While I would definitely prefer the former, I get the impression that TW handles the latter much more gracefully.
+
+* It's not clear if the code is reasonable.  I'm too new at TW to be at all certain.  There are some things that clearly need to be done:
+
+** It uses a fairly different coding style than the TW core code.  I don't know if there is a norm to write plug-ins in the same style as the core, but I need to at least consider it.
+
+** It's not at all clear to me if there are significant inefficiencies 
+
+** It's not clear if there is a better technique than a JS macro.
+
+
+!!! Things I think I know how to do, but will wait on for now:
+
+* We probably don't want to show the footer if there are no neighbors, and probably want to skip it on system tiddlers.
+
+* There should be a way to turn this off per tiddler, perhaps a `hide-nearby-footer` field.  Alternately, perhaps there's some configuration to opt-in, but it's not clear what that would be.
+
+* This initial calculation of immediate neighbors and their distances is based on hunches, not science.  This implies that the weightings should be configurable.  Moreover, some of them might not be based strictly on booleans.  (Currently, points are calculated using an object like ` {tagged: 8, linked: 5, sharedTag: 3, hasField: 1}`  For instance, for shared tags, we might choose to add, say, three points for the first tag two tiddlers have in common, and then one for each additional tag.  This is not hard to write, although an intuitive configuration mechanism for this might be tricky.

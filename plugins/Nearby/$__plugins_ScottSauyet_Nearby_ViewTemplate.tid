@@ -1,0 +1,13 @@
+created: 20221121163308395
+modified: 20221213152029871
+tags: $:/tags/ViewTemplate
+title: $:/plugins/ScottSauyet/Nearby/ViewTemplate
+type: text/vnd.tiddlywiki
+
+<div class="nearby-neighbors">
+<hr/>
+<details>
+<summary>Nearby</summary>
+<<list-links filter:"[all[current]neighbors[10]]">>
+</details>
+</div>
