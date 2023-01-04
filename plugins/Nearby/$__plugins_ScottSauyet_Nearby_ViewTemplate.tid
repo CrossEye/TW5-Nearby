@@ -1,13 +1,18 @@
 created: 20221121163308395
-modified: 20221213152029871
+modified: 20230104043723342
 tags: $:/tags/ViewTemplate
 title: $:/plugins/ScottSauyet/Nearby/ViewTemplate
 type: text/vnd.tiddlywiki
 
-<div class="nearby-neighbors">
-<hr/>
-<details>
-<summary>Nearby</summary>
-<<list-links filter:"[all[current]neighbors[10]]">>
-</details>
-</div>
+<$list filter="[all[current]is[tiddler]!is[system]]">
+<$list filter="[all[current]neighbors[1]]" variable="_">
+	<div class="nearby-neighbors">
+	<hr/>
+	<details>
+	<summary>Nearby</summary><$list filter=[all[current]neighbors[10]] variable="currentRecord">
+		<$link to=<<currentRecord>> class="nearbyItem" />
+	</$list>
+	</details>
+	</div>
+</$list>
+</$list>

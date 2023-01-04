@@ -1,8 +1,13 @@
 created: 20221206023816502
-modified: 20230103021530952
+modified: 20230104044529705
 tags: 
 title: $:/plugins/ScottSauyet/Nearby/version
 type: text/vnd.tiddlywiki
+
+; ''[[0.0.2|https://crosseye.github.io/TW5-Nearest/0.0.2/]]''
+:
+* Remove footer from system tiddlers, from missing tiddlers, and from those with no neighbors
+* Make the links into something more like tag pills
 
 ; ''[[0.0.1|https://crosseye.github.io/TW5-Nearest/0.0.1/]]''
 :

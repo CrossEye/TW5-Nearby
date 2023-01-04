@@ -19,7 +19,7 @@ const intersect = (as, bs) =>
 
 const fields = (tiddler) => Object .fromEntries ( // TODO: Very roundabout.  Surely something better available
   Object .entries (tiddler .getFieldStrings()) 
-  .filter (([k]) => ! ['created', 'modified', 'revision', 'tags', 'text', 'title', 'type'] .includes (k))
+  .filter (([k]) => ! ['created', 'modified', 'revision', 'tags', 'text', 'title', 'type', 'list'] .includes (k))
   .map (([k, v]) => [k, tiddler.getFieldList(k)])
 )
 

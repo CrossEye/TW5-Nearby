@@ -3,7 +3,7 @@
     "name": "Nearby",
     "description": "Adds nearby-neighbors footer to tiddlers",
     "author": "Scott Sauyet",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "core-version": ">=5.2.5",
     "source": "https://github.com/CrossEye/TW5-Nearby",
     "list": "readme license version credits",

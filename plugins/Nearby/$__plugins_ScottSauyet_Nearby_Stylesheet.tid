@@ -1,5 +1,5 @@
 created: 20221121184648238
-modified: 20221130014855607
+modified: 20230104044415973
 tags: $:/tags/Stylesheet
 title: $:/plugins/ScottSauyet/Nearby/Stylesheet
 type: text/vnd.tiddlywiki
@@ -13,3 +13,14 @@ type: text/vnd.tiddlywiki
   border-top: 1px solid <<colour muted-foreground>>; 
 }
 
+.nearbyItem {
+	font-size: 0.8rem;
+	border: 1px solid <<colour muted-foreground>>;
+	padding: .125rem .5rem;
+	margin: .25rem;
+	border-radius: .75rem;
+	background-color: <<colour background>>;
+	color: <<colour foreground>>;
+	text-decoration: none;
+	display: inline-block;
+}
