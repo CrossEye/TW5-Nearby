@@ -1,8 +1,13 @@
 created: 20221206023816502
-modified: 20230104044529705
+modified: 20230105031433851
 tags: 
 title: $:/plugins/ScottSauyet/Nearby/version
 type: text/vnd.tiddlywiki
+
+; ''[[0.0.3|https://crosseye.github.io/TW5-Nearest/0.0.3/]]''
+:
+* Add the ability to avoid the footer on a tiddler by adding tag`$:/tags/SkipNearby`
+* Minor cleanups to README wording
 
 ; ''[[0.0.2|https://crosseye.github.io/TW5-Nearest/0.0.2/]]''
 :

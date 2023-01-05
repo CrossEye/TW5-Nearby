@@ -1,10 +1,10 @@
 created: 20221204003433603
-modified: 20230103022423187
+modified: 20230105030547851
 tags: 
 title: $:/plugins/ScottSauyet/Nearby/readme
 type: text/vnd.tiddlywiki
 
-Nearest Neighbors is a simple plug-in to add a footer to tiddlers listing other tiddlers that are close to it on some fairly arbitrary metric involving relations between links, tags, and fields.
+Nearest Neighbors is a simple plug-in to add a footer to tiddlers listing other tiddlers that are close to it using a metric involving relations between links, tags, and fields.
 
 This is in a very early, proof-of-concept stage.
 

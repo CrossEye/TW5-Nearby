@@ -1,9 +1,10 @@
 created: 20221121163308395
-modified: 20230104043723342
+modified: 20230105031447935
 tags: $:/tags/ViewTemplate
 title: $:/plugins/ScottSauyet/Nearby/ViewTemplate
 type: text/vnd.tiddlywiki
 
+<$list filter="[all[current]!tag[$:/tags/SkipNearby]]" variable="_">
 <$list filter="[all[current]is[tiddler]!is[system]]">
 <$list filter="[all[current]neighbors[1]]" variable="_">
 	<div class="nearby-neighbors">
@@ -14,5 +15,6 @@ type: text/vnd.tiddlywiki
 	</$list>
 	</details>
 	</div>
+</$list>
 </$list>
 </$list>
