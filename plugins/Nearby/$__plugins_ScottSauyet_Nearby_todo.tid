@@ -1,5 +1,5 @@
 created: 20230103030759429
-modified: 20230105031741488
+modified: 20230111013015672
 tags: 
 title: $:/plugins/ScottSauyet/Nearby/todo
 type: text/vnd.tiddlywiki
@@ -27,4 +27,4 @@ type: text/vnd.tiddlywiki
 
 * <del>There should be a way to turn this off per tiddler, perhaps a `hide-nearby-footer` field.  Alternately, perhaps there's some configuration to opt-in, but it's not clear what that would be.</del>''Done'': fixed in version `0.0.3`.
 
-* This initial calculation of immediate neighbors and their distances is based on hunches, not science.  This implies that the weightings should be configurable.  Moreover, some of them might not be based strictly on booleans.  (Currently, points are calculated using an object like ` {tagged: 8, linked: 5, sharedTag: 3, hasField: 1}`  For instance, for shared tags, we might choose to add, say, three points for the first tag two tiddlers have in common, and then one for each additional tag.  This is not hard to write, although an intuitive configuration mechanism for this might be tricky.
+* <del>This initial calculation of immediate neighbors and their distances is based on hunches, not science.  This implies that the weightings should be configurable.  Moreover, some of them might not be based strictly on booleans.  (Currently, points are calculated using an object like ` {tagged: 8, linked: 5, sharedTag: 3, hasField: 1}`  For instance, for shared tags, we might choose to add, say, three points for the first tag two tiddlers have in common, and then one for each additional tag.  This is not hard to write, although an intuitive configuration mechanism for this might be tricky.</del> ''Done'': fixed for now in version `0.0.4`.  Will revisit later

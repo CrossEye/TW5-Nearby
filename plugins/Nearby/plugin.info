@@ -6,6 +6,6 @@
     "version": "0.0.4",
     "core-version": ">=5.2.5",
     "source": "https://github.com/CrossEye/TW5-Nearby",
-    "list": "readme license version credits todo",
+    "list": "readme configuration license version credits todo",
     "plugin-type": "plugin"
 }

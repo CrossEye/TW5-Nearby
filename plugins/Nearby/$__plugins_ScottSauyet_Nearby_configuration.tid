@@ -1,0 +1,25 @@
+created: 20230111013038193
+modified: 20230111014556789
+tags: 
+title: $:/plugins/ScottSauyet/Nearby/configuration
+type: text/vnd.tiddlywiki
+
+To configure this plugin, please edit 
+
+[[$:/plugins/ScottSauyet/Nearby/config.json]]
+
+It currently looks like this:
+
+{{$:/plugins/ScottSauyet/Nearby/config.json}}
+
+This is a temporary configuration mechanism.  It will be revisited later. 
+
+The basic idea is that the values are weightings of various factors in calculating the distance between two tiddlers.  Higher numbers are weighted more.  There are fields for links between the two tiddlers (`linked`), tiddlers tagging one another (`tagged`), tags shared by two tidders (`sharedTag`), and fields in either tiddler that have the other as a value (`hasField`).  There are other factors we will eventually add.  These factors are counted, so if, say, TiddlerA and TiddlerB, both have the tags `Foo`, `Bar`, and `Baz`, then the sharedTag count would be `3`.  We assign a total weight for this factor by using the configuration such as this:
+
+```json
+    "sharedTag": [3, 1],
+```
+
+which says that the first instance gets `3` points and all subsequent ones get `1` point.  Since our count is `3` , we would get `3` points for the first one, and `1` point for each of the others, for a total of `5` from this factor.  We are not limited to two numbers.  `[7, 6, 3, 1]` means that the first one would get `7` points, the next `6`, the next `3`, and all subsequent ones `1`.  The units are arbitrary.  This is only a way to note tiddlers that are linked and which are closer to one another.
+
+To exclude a factor, simply set its value to `[0]`.

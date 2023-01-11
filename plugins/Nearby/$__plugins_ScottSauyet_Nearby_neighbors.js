@@ -22,32 +22,43 @@ const fields = (tiddler) => Object .fromEntries ( // TODO: Very roundabout.  Sur
   .filter (([k]) => ! ['created', 'modified', 'revision', 'tags', 'text', 'title', 'type', 'list'] .includes (k))
   .map (([k, v]) => [k, tiddler.getFieldList(k)])
 )
-/*
-const points = {
+
+const defaultPoints = {
     tagged: 8,
     linked: 5,
     sharedTag: 3,
     hasField: 1
 }
-*/
+
+const sum = (ns) => ns .reduce ((t, n) => t + n, 0)
+
+const score = (parts, points) => sum(
+  Object.entries(parts).map(([k, v]) => {
+    const ps = points[k] || [0]
+    const dflt = ps .at (-1) || 0
+    return sum(Array.from({length: v}, (_, i) => ps [i] || dflt))
+  })
+)
+
 const distance = function (wiki, first, second) {
+    // TODO (once real config in place): add error handling
+    console .log ({conf: wiki.getTiddler('$:/plugins/ScottSauyet/Nearby/config.json')});
     const points = JSON.parse(wiki.getTiddler('$:/plugins/ScottSauyet/Nearby/config.json').fields.text)
+        || defaultPoints
     const a = wiki.getTiddler (first) ?? {fields: {}}
     const b = wiki.getTiddler (second) ?? {fields: {}}
-    const linked = wiki.getTiddlerLinks(first).includes(second) || wiki.getTiddlerLinks(second).includes (first)
+    const linked = wiki.getTiddlerLinks(first).includes(second) || wiki.getTiddlerLinks(second).includes (first) ? 1 : 0
     const tagsA = a.getFieldList('tags')
     const tagsB = b.getFieldList('tags')
-    const tagged = tagsA.includes (second) || tagsB.includes (first)
-    const sharedTag = intersect (tagsA, tagsB) . length > 0
-    const fieldsA = Object .values(fields (a)) .flat()
-    const fieldsB = Object .values(fields (b)) .flat ()
-    const hasField = fieldsA .includes (second) || fieldsB .includes (first)
-    const rawScore = 
-        (tagged ? points.tagged : 0) +
-        (linked ? points.linked : 0) +
-        (sharedTag ? points.sharedTag : 0) +
-        (hasField ? points.hasField : 0)
+    const tagged = tagsA.includes (second) || tagsB.includes (first) ? 1 : 0
+    const sharedTag = intersect (tagsA, tagsB) . length
+    const fieldsA = Object.values(fields (a)).flat()
+    const fieldsB = Object.values(fields (b)).flat()
+    const hasField = fieldsA.filter(x => x == second).length +
+                     fieldsB.filter(y => y == first).length
+    const rawScore = score ({linked, tagged, sharedTag, hasField}, points)
     return first == second ? 0 : rawScore == 0 ? Infinity : ~~(1000 / rawScore)
+
 }
 
 exports.neighbors = function(source,operator,options) {

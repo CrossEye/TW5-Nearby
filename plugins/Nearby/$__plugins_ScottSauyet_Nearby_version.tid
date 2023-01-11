@@ -4,6 +4,10 @@ tags:
 title: $:/plugins/ScottSauyet/Nearby/version
 type: text/vnd.tiddlywiki
 
+; ''[[0.0.4|https://crosseye.github.io/TW5-Nearest/0.0.4/]]''
+:
+* Add a minimal configuration option.  This is temporary and will need to be revisited
+
 ; ''[[0.0.3|https://crosseye.github.io/TW5-Nearest/0.0.3/]]''
 :
 * Add the ability to avoid the footer on a tiddler by adding tag`$:/tags/SkipNearby`
