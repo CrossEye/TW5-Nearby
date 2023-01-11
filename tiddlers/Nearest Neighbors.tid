@@ -1,10 +1,10 @@
 created: 20230103021217747
-modified: 20230105031940800
+modified: 20230110014459167
 tags: $:/tags/SkipNearby
 title: Nearest Neighbors
 type: text/vnd.tiddlywiki
 
-[img[$:/Nearby/images/TiddlerWithNav.png]]
+[img[$:/_/nearby/images/TiddlerWithNav.png]]
 
 {{$:/plugins/ScottSauyet/Nearby/readme}}
 

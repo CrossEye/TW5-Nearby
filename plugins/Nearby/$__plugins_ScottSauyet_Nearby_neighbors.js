@@ -22,15 +22,16 @@ const fields = (tiddler) => Object .fromEntries ( // TODO: Very roundabout.  Sur
   .filter (([k]) => ! ['created', 'modified', 'revision', 'tags', 'text', 'title', 'type', 'list'] .includes (k))
   .map (([k, v]) => [k, tiddler.getFieldList(k)])
 )
-
+/*
 const points = {
     tagged: 8,
     linked: 5,
     sharedTag: 3,
     hasField: 1
 }
-
+*/
 const distance = function (wiki, first, second) {
+    const points = JSON.parse(wiki.getTiddler('$:/plugins/ScottSauyet/Nearby/config.json').fields.text)
     const a = wiki.getTiddler (first) ?? {fields: {}}
     const b = wiki.getTiddler (second) ?? {fields: {}}
     const linked = wiki.getTiddlerLinks(first).includes(second) || wiki.getTiddlerLinks(second).includes (first)
